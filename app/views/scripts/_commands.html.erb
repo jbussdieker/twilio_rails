@@ -1,0 +1,12 @@
+<ul>
+<% commands.each do |command| %>
+  <li>
+    &lt;<%= command.type %>&gt;
+    <%= command.value %>
+    <% if command.children.count > 0 %>
+      <%= render :partial => "commands", :locals => { :commands => command.children } %>
+    <% end %>
+    &lt;/<%= command.type %>&gt;
+  </li>
+<% end %>
+</ul>

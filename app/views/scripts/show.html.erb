@@ -1,0 +1,7 @@
+<h1>Commands (<%= @script.name %>)</h1>
+
+<p>
+  <%= link_to "Back", scripts_path %>
+</p>
+
+<%= render :partial => "commands", :locals => { :commands => @script.commands.where("parent_id IS NULL") } %>
