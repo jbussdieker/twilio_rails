@@ -1,0 +1,13 @@
+<h1>Scripts</h1>
+
+<p>
+  <%= link_to "Create", new_script_path %>
+</p>
+
+<table border=1>
+  <% @scripts.each do |script| %>
+  <tr>
+    <td><%= link_to script.name, script %></td>
+  </tr>
+  <% end %>
+</table>

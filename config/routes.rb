@@ -1,5 +1,6 @@
 TwilioRails::Application.routes.draw do
   devise_for :users
+  resources :scripts
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
