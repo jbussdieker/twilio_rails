@@ -13,6 +13,9 @@
 # Ignore the database config.
 /config/database.yml
 
+# Ignore the database seeds.
+/db/seeds.rb
+
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
