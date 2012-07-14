@@ -1,7 +1,7 @@
 <ul>
 <% commands.each do |command| %>
   <li>
-    &lt;<%= command.type %>&gt;
+    &lt;<%= command.type %><% command.attributes.each do |attribute| %> <%= attribute.name %>="<%= attribute.value %>"<% end %>&gt;
     <%= command.value %>
     <% if command.children.count > 0 %>
       <%= render :partial => "commands", :locals => { :commands => command.children } %>
