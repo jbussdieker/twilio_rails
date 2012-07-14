@@ -3,6 +3,8 @@ class Command < ActiveRecord::Base
 
   belongs_to :script
   belongs_to :type
+  has_many :attributes
+
   acts_as_tree order: "position"
 
   include ActsAsTree
