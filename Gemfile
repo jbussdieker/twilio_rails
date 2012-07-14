@@ -10,6 +10,7 @@ gem 'sqlite3'
 #gem 'pg'
 
 gem 'devise'
+gem 'acts_as_tree'
 
 
 # Gems used only for assets and not required
