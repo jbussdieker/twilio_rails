@@ -11,3 +11,36 @@
  *= require_self
  *= require_tree .
  */
+tr:hover audio {
+  opacity: 100;
+}
+
+audio {
+  opacity: 0;
+}
+
+ul.render .hover-show {
+  opacity: 0;
+}
+
+ul.render a.hover-visible {
+  display: none;
+}
+
+ul.render li:hover > .hover-show {
+  opacity: 100;
+}
+
+ul.render li:hover > .hover-visible {
+  display: inline-block;
+}
+
+ul.render {
+  list-style: none;
+}
+
+ul.render-main {
+  padding: 16px;
+  background: lightgray;
+  border: 1px solid gray;
+}

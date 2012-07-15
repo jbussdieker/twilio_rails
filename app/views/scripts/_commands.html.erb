@@ -1,12 +1,13 @@
-<ul>
-<% commands.each do |command| %>
-  <li>
-    &lt;<%= command.type %><% command.attributes.each do |attribute| %> <%= attribute.name %>="<%= attribute.value %>"<% end %>&gt;
-    <%= command.value %>
-    <% if command.children.count > 0 %>
+<ul class="render">
+  <% commands.each do |command| %>
+    <li style="font-family: mono">
+      <%= open_tag(command) %><% if command.children.count > 0 %>
+    </li>
+    <li style="font-family: mono">
       <%= render :partial => "commands", :locals => { :commands => command.children } %>
-    <% end %>
-    &lt;/<%= command.type %>&gt;
-  </li>
-<% end %>
+    </li>
+    <li style="font-family: mono">
+      <%= command_links(command) %><% end %><%= close_tag(command) %>
+    </li>
+  <% end %>
 </ul>

@@ -1,0 +1,22 @@
+<%= form_for([@script, @command]) do |f| %>
+  <% @command.errors.full_messages.each do |msg| %>
+    <div class="alert alert-error">
+      <a class="close" data-dismiss="alert">&#215;</a>
+      <%= content_tag :div, msg if msg.is_a?(String) %>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :parent_id %>
+
+  <div class="field">
+    <%= f.label :type_id %>
+    <%= select("command", "type_id", @command.allowed_types) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :value %>
+    <%= f.text_field :value %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

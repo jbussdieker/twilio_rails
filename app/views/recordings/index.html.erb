@@ -1,0 +1,24 @@
+<h1>Recordings</h1>
+
+<table class="table table-recordings">
+  <tr>
+    <th>Time</th>
+    <th>Caller</th>
+    <th>Duration</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @recordings.each do |recording| %>
+  <tr>
+    <td><%= l recording.created_at.in_time_zone("Pacific Time (US & Canada)"), :format => '%B %d, %Y %l:%M %p' %></td>
+    <td><%= recording.call.Caller %></td>
+    <td><%= recording.RecordingDuration %></td>
+    <td>
+      <audio controls>
+        <source src="<%= recording.RecordingUrl %>" type="audio/mp3" />
+      </audio>
+    </td>
+    <td><%= link_to "", recording_path(recording), method: :delete, class: "icon-trash" %></td>
+  </tr>
+<% end %>
+</table>

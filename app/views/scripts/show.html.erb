@@ -1,7 +1,14 @@
-<h1>Commands (<%= @script.name %>)</h1>
+<h1><%= @script.name %></h1>
 
-<p>
-  <%= link_to "Back", scripts_path %>
-</p>
+<div class="well">
+  <%= link_to "Create", new_script_command_path(@script), class: "btn" %>
+  <%= link_to "Back", scripts_path, class: "btn" %>
+</div>
 
-<%= render :partial => "commands", :locals => { :commands => @script.commands.where("parent_id IS NULL") } %>
+<h2>Commands</h2>
+
+<ul class="render render-main">
+  <li style="font-family: mono"><%= link_to "", new_script_command_path(@script), :class => "hover-show icon-file" %> <i class="icon-blank"></i> <i class="icon-blank"></i> <i class="icon-blank"></i><i class="icon-blank"></i> &lt;Reponse&gt;</li>
+  <li style="font-family: mono"><%= render :partial => "commands", :locals => { :commands => @commands } %></li>
+  <li style="font-family: mono"><%= link_to "", new_script_command_path(@script), :class => "hover-show icon-file" %> <i class="icon-blank"></i> <i class="icon-blank"></i> <i class="icon-blank"></i><i class="icon-blank"></i> &lt;/Reponse&gt;</li>
+</ul>

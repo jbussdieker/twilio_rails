@@ -1,6 +1,6 @@
-class CreateAttributes < ActiveRecord::Migration
+class CreateTags < ActiveRecord::Migration
   def change
-    create_table :attributes do |t|
+    create_table :tags do |t|
       t.string :name
       t.string :value
       t.integer :command_id

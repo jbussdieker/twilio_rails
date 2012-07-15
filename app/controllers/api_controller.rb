@@ -16,6 +16,13 @@ class ApiController < ApplicationController
       end
     end
 
+    if params["RecordingSid"]
+      filter_params = params.reject {|key,value|
+        !key.in?(["RecordingSid", "CallSid", "RecordingDuration", "RecordingUrl"])
+      }
+      @recording = Recording.create(filter_params)
+    end
+
     # TODO: Choose based on call rules
     @script = Script.first
 

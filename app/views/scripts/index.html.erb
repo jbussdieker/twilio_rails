@@ -1,13 +1,15 @@
 <h1>Scripts</h1>
 
-<p>
-  <%= link_to "Create", new_script_path %>
-</p>
+<div class="well">
+  <%= link_to "Create", new_script_path, class: "btn" %>
+</div>
 
-<table border=1>
+<table class="table">
   <% @scripts.each do |script| %>
   <tr>
     <td><%= link_to script.name, script %></td>
+    <td><%= link_to "", edit_script_path(script), class: "icon-edit" %></td>
+    <td><%= link_to "", script_path(script), method: :delete, class: "icon-trash" %></td>
   </tr>
   <% end %>
 </table>

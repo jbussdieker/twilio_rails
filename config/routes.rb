@@ -1,7 +1,15 @@
 TwilioRails::Application.routes.draw do
   devise_for :users
-  resources :scripts
+  resources :scripts do
+    resources :commands do
+      resources :tags
+      member do
+        put "move"
+      end
+    end
+  end
   resources :calls
+  resources :recordings
   match "api" => "api#index"
 
   # The priority is based upon order of creation:

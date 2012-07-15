@@ -1,7 +1,9 @@
 class Type < ActiveRecord::Base
   attr_accessible :name
 
-  has_many :type_nestings
+  has_many :commands
+
+  validates :name, :presence => true
 
   def to_s
     name

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  RecordingSid: MyString
+  RecordingUrl: MyString
+  RecordingDuration: MyString
+  CallSid: MyString
+
+two:
+  RecordingSid: MyString
+  RecordingUrl: MyString
+  RecordingDuration: MyString
+  CallSid: MyString
