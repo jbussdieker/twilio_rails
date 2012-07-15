@@ -2,6 +2,7 @@
 
 <table class="table">
   <tr>
+    <th></th>
     <th>Time</th>
     <th>Caller</th>
     <th>Called</th>
@@ -12,6 +13,7 @@
   </tr>
 <% @calls.each do |call| %>
   <tr>
+    <td><%= content_tag :span, "New", class: "badge badge-success" if call.new %></td>
     <td><%= l call.created_at.in_time_zone("Pacific Time (US & Canada)"), :format => '%B %d, %Y %l:%M %p' %></td>
     <td><%= call.Caller %></td>
     <td><%= call.Called %></td>

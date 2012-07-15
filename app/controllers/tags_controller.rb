@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  before_filter :authenticate_user!
+
   def new
     @script = Script.find(params[:script_id])
     @command = @script.commands.find(params[:command_id])

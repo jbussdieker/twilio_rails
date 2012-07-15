@@ -8,6 +8,8 @@ class CreateCalls < ActiveRecord::Migration
       t.string :CallStatus
       t.integer :CallDuration
 
+      t.boolean :new, :default => true
+
       t.timestamps
     end
   end

@@ -2,6 +2,7 @@
 
 <table class="table table-recordings">
   <tr>
+    <th></th>
     <th>Time</th>
     <th>Caller</th>
     <th>Duration</th>
@@ -10,6 +11,7 @@
   </tr>
 <% @recordings.each do |recording| %>
   <tr>
+    <td><%= content_tag :span, "New", class: "badge badge-success" if recording.new %></td>
     <td><%= l recording.created_at.in_time_zone("Pacific Time (US & Canada)"), :format => '%B %d, %Y %l:%M %p' %></td>
     <td><%= recording.call.Caller %></td>
     <td><%= recording.RecordingDuration %></td>

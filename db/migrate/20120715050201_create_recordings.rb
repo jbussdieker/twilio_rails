@@ -6,6 +6,8 @@ class CreateRecordings < ActiveRecord::Migration
       t.string :RecordingDuration
       t.string :CallSid
 
+      t.boolean :new, :default => true
+
       t.timestamps
     end
   end

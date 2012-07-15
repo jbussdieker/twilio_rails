@@ -1,4 +1,6 @@
 class ScriptsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @scripts = Script.all
   end
