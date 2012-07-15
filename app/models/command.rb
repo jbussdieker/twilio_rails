@@ -4,6 +4,7 @@ class Command < ActiveRecord::Base
   belongs_to :script
   belongs_to :type
   has_many :attributes
+  has_many :nestings, :through => :type, :source => :type_nestings
 
   acts_as_tree order: "position"
 

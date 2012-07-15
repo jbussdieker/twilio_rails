@@ -6,3 +6,32 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create(:email => 'user@domain.com', :password => 'password', :password_confirmation => 'password')
+
+# Unnestable
+say_type = Type.create(:name => "Say")
+play_type = Type.create(:name => "Play")
+record_type = Type.create(:name => "Record")
+sms_type = Type.create(:name => "Sms")
+number_type = Type.create(:name => "Number")
+client_type = Type.create(:name => "Client")
+conference_type = Type.create(:name => "Conference")
+hangup_type = Type.create(:name => "Hangup")
+redirect_type = Type.create(:name => "Redirect")
+reject_type = Type.create(:name => "Reject")
+pause_type = Type.create(:name => "Pause")
+
+# Nestable
+gather_type = Type.create(:name => "Gather")
+TypeNesting.create(:type_id => gather_type, :child_id => say_type)
+TypeNesting.create(:type_id => gather_type, :child_id => play_type)
+TypeNesting.create(:type_id => gather_type, :child_id => pause_type)
+
+dial_type = Type.create(:name => "Dial")
+TypeNesting.create(:type_id => dial_type, :child_id => number_type)
+TypeNesting.create(:type_id => dial_type, :child_id => client_type)
+TypeNesting.create(:type_id => dial_type, :child_id => conference_type)
+
+main_menu = Script.create(:name => 'Main Menu')
+  gather = main_menu.commands.create(:type_id => gather_type.id)
+  gather.attributes.create(:name => "numDigits", :value => "12")
+    say = main_menu.commands.create(:parent_id => gather.id, :type_id => say_type.id, :value => 'Hello World')
