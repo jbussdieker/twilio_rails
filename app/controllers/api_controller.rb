@@ -1,3 +1,16 @@
+class ApiScope
+  def initialize(script, call, recording, digits)
+    @script=script
+    @call=call
+    @recording=recording
+    @digits=digits
+  end
+
+  def get_binding
+    return binding()
+  end
+end
+
 class ApiController < ApplicationController
   def index
     if params["CallSid"]
@@ -26,6 +39,7 @@ class ApiController < ApplicationController
     # TODO: Choose based on call rules
     @script = Script.first
 
+    @api_scope = ApiScope.new(@script, @call, @recording, params[:Digits])
     render :template => "scripts/show", :formats => :xml, :handlers => :builder
   end
 end

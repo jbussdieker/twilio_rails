@@ -5,7 +5,7 @@ commands.each do |command|
       if command.children.count > 0
         xe << render(:formats => [:xml], :partial => "scripts/commands", :locals => { :commands => command.children })
       else
-        xe << command.value
+        xe << render_value(command.value)
       end
     end
 end
