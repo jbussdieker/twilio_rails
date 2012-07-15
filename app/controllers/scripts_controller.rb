@@ -11,4 +11,13 @@ class ScriptsController < ApplicationController
       format.xml { render :action => "show.xml.builder", :layout => false }
     end
   end
+
+  def new
+    @script = Script.new
+  end
+
+  def create
+    @script = Script.create(params[:script])
+    redirect_to scripts_path
+  end
 end

@@ -1,0 +1,18 @@
+<table border=1>
+  <tr>
+    <th>Time</th>
+    <th>Caller</th>
+    <th>Called</th>
+    <th>Duration</th>
+    <th>Status</th>
+  </tr>
+<% @calls.each do |call| %>
+  <tr>
+    <td><%= l call.created_at.in_time_zone("Pacific Time (US & Canada)"), :format => '%B %d, %Y %l:%M %p' %></td>
+    <td><%= call.Caller %></td>
+    <td><%= call.Called %></td>
+    <td><%= call.CallDuration %></td>
+    <td><%= call.CallStatus %></td>
+  </tr>
+<% end %>
+</table>
